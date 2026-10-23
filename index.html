@@ -12,12 +12,12 @@
   <section id="gallery" class="screen on" aria-labelledby="gallery-title">
     <header class="bar">
       <span class="mark serif">保</span>
-      <div><h1 id="gallery-title" class="serif">文物細部瀏覽</h1><small>大龍峒保安宮・選一件文物，把手機平放在桌上瀏覽</small></div>
+      <div><h1 id="gallery-title" class="serif">文物細部瀏覽</h1><small>大龍峒保安宮・選一件文物，把手機直立拿在面前瀏覽</small></div>
     </header>
     <div id="grid" class="grid" role="list"></div>
   </section>
 
-  <!-- 2. 提示平放 -->
+  <!-- 2. 提示直立 -->
   <section id="prepare" class="screen" aria-labelledby="prepare-title">
     <header class="bar">
       <button class="back" data-back aria-label="返回文物清單">‹</button>
@@ -26,9 +26,9 @@
     <div class="prepare-body">
       <img id="prepare-thumb" class="prepare-thumb" alt="" />
       <div class="hint">
-        <div class="table" aria-hidden="true"><div class="phone"><i></i></div></div>
-        <h2 class="serif" id="hint-title">把手機螢幕朝上，平放在桌面</h2>
-        <p id="hint-text">放平之後，整張圖就像鋪在桌上。在桌面上滑動、轉動手機，螢幕就是看圖的窗口。</p>
+        <div class="stage" aria-hidden="true"><div class="phone"><i></i></div></div>
+        <h2 class="serif" id="hint-title">把手機直立拿在面前</h2>
+        <p id="hint-text">像隔著手機看牆上的壁畫。左右轉動、上下仰俯手機，螢幕就是看圖的窗口。</p>
         <div class="level" aria-hidden="true"><span id="bubble"></span></div>
         <p class="tilt mono" id="tilt-read">—</p>
         <div class="load"><span id="load-bar"></span></div>
@@ -41,7 +41,7 @@
     </div>
   </section>
 
-  <!-- 3. 平放瀏覽 -->
+  <!-- 3. 直立瀏覽 -->
   <section id="viewer" class="screen viewer" aria-label="文物細部檢視">
     <canvas id="canvas"></canvas>
     <div class="hud top">
@@ -58,15 +58,13 @@
       <button class="btn sm" id="settings-btn" aria-expanded="false">設定</button>
     </div>
     <div class="settings" id="settings" hidden>
-      <label>移動靈敏度 <input id="gain" type="range" min="0.4" max="2.5" step="0.1" value="1" /><span class="mono" id="gain-read">1.0×</span></label>
-      <label><input id="follow-rotate" type="checkbox" checked /> 轉動手機時圖跟著桌面固定</label>
+      <label>轉動靈敏度 <input id="gain" type="range" min="0.4" max="2.5" step="0.1" value="1" /><span class="mono" id="gain-read">1.0×</span></label>
+      <label><input id="follow-rotate" type="checkbox" checked /> 手機歪斜時圖保持正立</label>
       <label><input id="invert" type="checkbox" /> 移動方向反轉</label>
-      <label><input id="invert-rotate" type="checkbox" /> 轉動方向反轉</label>
-      <button class="btn sm" id="recalibrate">重新校準（保持不動 1 秒）</button>
     </div>
     <div class="lifted" id="lifted" hidden>
-      <div class="table small" aria-hidden="true"><div class="phone"><i></i></div></div>
-      <b class="serif">放回桌面以繼續</b><small>拿起時暫停追蹤，仍可用手指拖曳</small>
+      <div class="stage small" aria-hidden="true"><div class="phone"><i></i></div></div>
+      <b class="serif">把手機拿直以繼續</b><small>手機太平時暫停追蹤，仍可用手指拖曳</small>
     </div>
     <div class="toast" id="toast" role="status" hidden></div>
   </section>

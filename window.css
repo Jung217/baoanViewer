@@ -42,12 +42,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .hint p { margin: 0; font-size: 13px; line-height: 1.6; color: var(--muted); }
 .hint.ready h2 { color: #2f7a3a; }
 
-.table { position: relative; width: 150px; height: 64px; margin: 0 auto; perspective: 300px; }
-.table::after { content: ""; position: absolute; left: 0; right: 0; bottom: 6px; height: 34px; background: linear-gradient(#d9c39d, #b99a6a); transform: rotateX(58deg); border-radius: 4px; }
-.phone { position: absolute; left: 50%; bottom: 18px; z-index: 1; width: 30px; height: 54px; margin-left: -15px; border: 3px solid var(--lacquer); border-radius: 6px; background: #fff; transform-origin: 50% 100%; animation: lay 2.6s ease-in-out infinite; }
+.stage { position: relative; width: 150px; height: 78px; margin: 0 auto; perspective: 300px; }
+.stage::before { content: ""; position: absolute; left: 22px; right: 22px; top: 0; bottom: 10px; border: 3px solid var(--gold); background: linear-gradient(135deg, #e8d5b0, #c9a679); opacity: .6; }
+.phone { position: absolute; left: 50%; bottom: 4px; z-index: 1; width: 30px; height: 54px; margin-left: -15px; border: 3px solid var(--lacquer); border-radius: 6px; background: #fff; transform-origin: 50% 100%; animation: stand 2.6s ease-in-out infinite; }
 .phone i { position: absolute; inset: 5px 3px; background: linear-gradient(135deg, var(--gold), var(--vermilion)); opacity: .55; }
-@keyframes lay { 0%, 20% { transform: rotateX(0deg) translateY(-6px); } 60%, 100% { transform: rotateX(72deg) translateY(10px); } }
-.table.small { transform: scale(.8); }
+@keyframes stand { 0%, 20% { transform: rotateX(70deg); } 60%, 100% { transform: rotateX(0deg); } }
+.stage.small { transform: scale(.8); }
 
 .level { position: relative; width: 96px; height: 96px; margin: 14px auto 4px; border-radius: 50%; border: 2px solid var(--line); background: radial-gradient(circle, #fff 0 13px, transparent 14px), radial-gradient(circle, transparent 0 13px, var(--line) 14px 15px, transparent 16px), var(--paper-2); }
 .level span { position: absolute; left: 50%; top: 50%; width: 22px; height: 22px; margin: -11px; border-radius: 50%; background: var(--vermilion); box-shadow: 0 0 0 3px rgba(168,38,28,.18); transition: background .2s; }
@@ -93,4 +93,4 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 .toast { position: absolute; left: 50%; top: calc(76px + env(safe-area-inset-top)); z-index: 5; transform: translateX(-50%); max-width: calc(100% - 32px); padding: 8px 14px; background: var(--paper); color: var(--ink); border-left: 3px solid var(--gold); border-radius: 4px; font-size: 13px; box-shadow: 0 4px 14px rgba(0,0,0,.3); }
 
-@media (prefers-reduced-motion: reduce) { .phone { animation: none; transform: rotateX(72deg) translateY(10px); } }
+@media (prefers-reduced-motion: reduce) { .phone { animation: none; transform: none; } }
