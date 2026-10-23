@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#4a120e" />
+  <title>保安宮文物細部瀏覽</title>
+  <link rel="stylesheet" href="window.css" />
+</head>
+<body>
+  <!-- 1. 選文物 -->
+  <section id="gallery" class="screen on" aria-labelledby="gallery-title">
+    <header class="bar">
+      <span class="mark serif">保</span>
+      <div><h1 id="gallery-title" class="serif">文物細部瀏覽</h1><small>大龍峒保安宮・選一件文物，把手機平放在桌上瀏覽</small></div>
+    </header>
+    <div id="grid" class="grid" role="list"></div>
+  </section>
+
+  <!-- 2. 提示平放 -->
+  <section id="prepare" class="screen" aria-labelledby="prepare-title">
+    <header class="bar">
+      <button class="back" data-back aria-label="返回文物清單">‹</button>
+      <div><h1 id="prepare-title" class="serif"></h1><small id="prepare-sub"></small></div>
+    </header>
+    <div class="prepare-body">
+      <img id="prepare-thumb" class="prepare-thumb" alt="" />
+      <div class="hint">
+        <div class="table" aria-hidden="true"><div class="phone"><i></i></div></div>
+        <h2 class="serif" id="hint-title">把手機螢幕朝上，平放在桌面</h2>
+        <p id="hint-text">放平之後，整張圖就像鋪在桌上。在桌面上滑動、轉動手機，螢幕就是看圖的窗口。</p>
+        <div class="level" aria-hidden="true"><span id="bubble"></span></div>
+        <p class="tilt mono" id="tilt-read">—</p>
+        <div class="load"><span id="load-bar"></span></div>
+        <p class="load-text mono" id="load-text">載入原圖…</p>
+      </div>
+      <div class="actions">
+        <button class="btn primary" id="start">開始偵測</button>
+        <button class="btn" id="manual">不用感測器，直接拖曳瀏覽</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 平放瀏覽 -->
+  <section id="viewer" class="screen viewer" aria-label="文物細部檢視">
+    <canvas id="canvas"></canvas>
+    <div class="hud top">
+      <button class="back light" data-back aria-label="返回文物清單">‹</button>
+      <div class="hud-title"><b class="serif" id="view-title"></b><small class="mono" id="view-sub"></small></div>
+      <canvas id="minimap" class="minimap" aria-label="全圖位置"></canvas>
+    </div>
+    <div class="hud bottom">
+      <span class="state mono" id="state">—</span>
+      <div class="seg" role="group" aria-label="縮放">
+        <button data-zoom="0.5">½×</button><button data-zoom="1" class="on">1:1</button><button data-zoom="2">2×</button>
+      </div>
+      <button class="btn sm" id="recenter">回中心</button>
+      <button class="btn sm" id="settings-btn" aria-expanded="false">設定</button>
+    </div>
+    <div class="settings" id="settings" hidden>
+      <label>移動靈敏度 <input id="gain" type="range" min="0.4" max="2.5" step="0.1" value="1" /><span class="mono" id="gain-read">1.0×</span></label>
+      <label><input id="follow-rotate" type="checkbox" checked /> 轉動手機時圖跟著桌面固定</label>
+      <label><input id="invert" type="checkbox" /> 移動方向反轉</label>
+      <label><input id="invert-rotate" type="checkbox" /> 轉動方向反轉</label>
+      <button class="btn sm" id="recalibrate">重新校準（保持不動 1 秒）</button>
+    </div>
+    <div class="lifted" id="lifted" hidden>
+      <div class="table small" aria-hidden="true"><div class="phone"><i></i></div></div>
+      <b class="serif">放回桌面以繼續</b><small>拿起時暫停追蹤，仍可用手指拖曳</small>
+    </div>
+    <div class="toast" id="toast" role="status" hidden></div>
+  </section>
+
+  <script src="window.js"></script>
+</body>
+</html>
