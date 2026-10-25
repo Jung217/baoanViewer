@@ -9,7 +9,8 @@
   "height": 4032,
   "image": "images/A-01.jpg",
   "thumb": "thumbs/A-01.jpg",
-  "bytes": 5098775
+  "bytes": 5098775,
+  "masks": {}
  },
  {
   "id": "A-02",
@@ -21,7 +22,27 @@
   "height": 4032,
   "image": "images/A-02.jpg",
   "thumb": "thumbs/A-02.jpg",
-  "bytes": 3771263
+  "bytes": 3771263,
+  "masks": {
+   "crack": {
+    "label": "裂縫",
+    "color": "#FF3B30",
+    "url": "masks/A-02_crack.png",
+    "pixels": 15843
+   },
+   "craquelure": {
+    "label": "龜裂",
+    "color": "#61E536",
+    "url": "masks/A-02_craquelure.png",
+    "pixels": 79853
+   },
+   "loss": {
+    "label": "缺失",
+    "color": "#FF2DC4",
+    "url": "masks/A-02_loss.png",
+    "pixels": 7743
+   }
+  }
  },
  {
   "id": "A-03",
@@ -33,7 +54,8 @@
   "height": 4032,
   "image": "images/A-03.jpg",
   "thumb": "thumbs/A-03.jpg",
-  "bytes": 4502569
+  "bytes": 4502569,
+  "masks": {}
  },
  {
   "id": "A-04",
@@ -45,7 +67,21 @@
   "height": 4032,
   "image": "images/A-04.jpg",
   "thumb": "thumbs/A-04.jpg",
-  "bytes": 2659765
+  "bytes": 2659765,
+  "masks": {
+   "crack": {
+    "label": "裂縫",
+    "color": "#FF3B30",
+    "url": "masks/A-04_crack.png",
+    "pixels": 18620
+   },
+   "loss": {
+    "label": "缺失",
+    "color": "#FF2DC4",
+    "url": "masks/A-04_loss.png",
+    "pixels": 31722
+   }
+  }
  },
  {
   "id": "A-05",
@@ -57,7 +93,27 @@
   "height": 3024,
   "image": "images/A-05.jpg",
   "thumb": "thumbs/A-05.jpg",
-  "bytes": 3640073
+  "bytes": 3640073,
+  "masks": {
+   "crack": {
+    "label": "裂縫",
+    "color": "#FF3B30",
+    "url": "masks/A-05_crack.png",
+    "pixels": 26663
+   },
+   "craquelure": {
+    "label": "龜裂",
+    "color": "#61E536",
+    "url": "masks/A-05_craquelure.png",
+    "pixels": 122179
+   },
+   "loss": {
+    "label": "缺失",
+    "color": "#FF2DC4",
+    "url": "masks/A-05_loss.png",
+    "pixels": 58439
+   }
+  }
  },
  {
   "id": "A-06",
@@ -69,7 +125,27 @@
   "height": 3024,
   "image": "images/A-06.jpg",
   "thumb": "thumbs/A-06.jpg",
-  "bytes": 3170249
+  "bytes": 3170249,
+  "masks": {
+   "crack": {
+    "label": "裂縫",
+    "color": "#FF3B30",
+    "url": "masks/A-06_crack.png",
+    "pixels": 22984
+   },
+   "craquelure": {
+    "label": "龜裂",
+    "color": "#61E536",
+    "url": "masks/A-06_craquelure.png",
+    "pixels": 2662
+   },
+   "loss": {
+    "label": "缺失",
+    "color": "#FF2DC4",
+    "url": "masks/A-06_loss.png",
+    "pixels": 67897
+   }
+  }
  },
  {
   "id": "A-07",
@@ -81,7 +157,27 @@
   "height": 3024,
   "image": "images/A-07.jpg",
   "thumb": "thumbs/A-07.jpg",
-  "bytes": 3753494
+  "bytes": 3753494,
+  "masks": {
+   "crack": {
+    "label": "裂縫",
+    "color": "#FF3B30",
+    "url": "masks/A-07_crack.png",
+    "pixels": 11467
+   },
+   "craquelure": {
+    "label": "龜裂",
+    "color": "#61E536",
+    "url": "masks/A-07_craquelure.png",
+    "pixels": 41368
+   },
+   "loss": {
+    "label": "缺失",
+    "color": "#FF2DC4",
+    "url": "masks/A-07_loss.png",
+    "pixels": 29334
+   }
+  }
  },
  {
   "id": "A-08",
@@ -93,7 +189,8 @@
   "height": 3024,
   "image": "images/A-08.jpg",
   "thumb": "thumbs/A-08.jpg",
-  "bytes": 3988033
+  "bytes": 3988033,
+  "masks": {}
  },
  {
   "id": "A-09",
@@ -105,7 +202,27 @@
   "height": 3024,
   "image": "images/A-09.jpg",
   "thumb": "thumbs/A-09.jpg",
-  "bytes": 3101029
+  "bytes": 3101029,
+  "masks": {
+   "crack": {
+    "label": "裂縫",
+    "color": "#FF3B30",
+    "url": "masks/A-09_crack.png",
+    "pixels": 80278
+   },
+   "craquelure": {
+    "label": "龜裂",
+    "color": "#61E536",
+    "url": "masks/A-09_craquelure.png",
+    "pixels": 144999
+   },
+   "loss": {
+    "label": "缺失",
+    "color": "#FF2DC4",
+    "url": "masks/A-09_loss.png",
+    "pixels": 65680
+   }
+  }
  },
  {
   "id": "A-10",
@@ -117,7 +234,27 @@
   "height": 3024,
   "image": "images/A-10.jpg",
   "thumb": "thumbs/A-10.jpg",
-  "bytes": 4012456
+  "bytes": 4012456,
+  "masks": {
+   "crack": {
+    "label": "裂縫",
+    "color": "#FF3B30",
+    "url": "masks/A-10_crack.png",
+    "pixels": 43469
+   },
+   "craquelure": {
+    "label": "龜裂",
+    "color": "#61E536",
+    "url": "masks/A-10_craquelure.png",
+    "pixels": 29133
+   },
+   "loss": {
+    "label": "缺失",
+    "color": "#FF2DC4",
+    "url": "masks/A-10_loss.png",
+    "pixels": 232426
+   }
+  }
  },
  {
   "id": "A-11",
@@ -129,7 +266,27 @@
   "height": 1536,
   "image": "images/A-11.jpg",
   "thumb": "thumbs/A-11.jpg",
-  "bytes": 450643
+  "bytes": 450643,
+  "masks": {
+   "crack": {
+    "label": "裂縫",
+    "color": "#FF3B30",
+    "url": "masks/A-11_crack.png",
+    "pixels": 10353
+   },
+   "craquelure": {
+    "label": "龜裂",
+    "color": "#61E536",
+    "url": "masks/A-11_craquelure.png",
+    "pixels": 215
+   },
+   "loss": {
+    "label": "缺失",
+    "color": "#FF2DC4",
+    "url": "masks/A-11_loss.png",
+    "pixels": 2097
+   }
+  }
  },
  {
   "id": "A-12",
@@ -141,7 +298,8 @@
   "height": 3024,
   "image": "images/A-12.jpg",
   "thumb": "thumbs/A-12.jpg",
-  "bytes": 2066436
+  "bytes": 2066436,
+  "masks": {}
  },
  {
   "id": "A-13",
@@ -153,7 +311,8 @@
   "height": 4032,
   "image": "images/A-13.jpg",
   "thumb": "thumbs/A-13.jpg",
-  "bytes": 3488951
+  "bytes": 3488951,
+  "masks": {}
  },
  {
   "id": "A-14",
@@ -165,6 +324,20 @@
   "height": 1536,
   "image": "images/A-14.jpg",
   "thumb": "thumbs/A-14.jpg",
-  "bytes": 342975
+  "bytes": 342975,
+  "masks": {
+   "crack": {
+    "label": "裂縫",
+    "color": "#FF3B30",
+    "url": "masks/A-14_crack.png",
+    "pixels": 11717
+   },
+   "loss": {
+    "label": "缺失",
+    "color": "#FF2DC4",
+    "url": "masks/A-14_loss.png",
+    "pixels": 466
+   }
+  }
  }
 ]

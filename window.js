@@ -27,7 +27,12 @@
     C: { u: 0, v: 0 }, s: 1, theta: 0, prev: null, spin: null,
     gain: 1, followRotate: true, invert: false,
     dirty: true, raf: 0, wakeLock: null, miniBase: null,
+    // 病害標註疊圖：maskShow 為 'off'、'all' 或類別名；maskImgs 依類別存已載入的圖
+    maskShow: 'off', maskImgs: {}, maskToken: 0,
   };
+  // 標註閃爍：週期（毫秒）與不透明度範圍；偏好減少動態時固定不閃
+  const BLINK_MS = 2400, BLINK_MIN = 0.12, BLINK_MAX = 0.8;
+  const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
 
   const rot = (x, y, a) => ({ x: x * Math.cos(a) - y * Math.sin(a), y: x * Math.sin(a) + y * Math.cos(a) });
   const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
@@ -294,6 +299,7 @@
     state.C = { u: state.img.naturalWidth / 2, v: state.img.naturalHeight / 2 };
     state.s = 1; state.theta = 0; state.prev = null; state.paused = false;
     $('lifted').hidden = true; $('settings').hidden = true;
+    setupMasks(a);
     $('view-title').textContent = a.name;
     show('viewer');
     history.replaceState({ screen: 'viewer', id: a.id }, '');
@@ -341,6 +347,7 @@
     const tick = () => {
       if (state.mode !== 'view') return;
       if (state.dirty) { draw(); drawMini(); updateState(); state.dirty = false; }
+      else if (visibleMasks().length) draw();
       state.raf = requestAnimationFrame(tick);
     };
     state.raf = requestAnimationFrame(tick);
@@ -362,8 +369,62 @@
     ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 24 / state.s;
     ctx.drawImage(img, 0, 0);
     ctx.shadowBlur = 0;
+    const masks = visibleMasks();
+    if (masks.length) {
+      ctx.imageSmoothingEnabled = false;
+      ctx.globalAlpha = reduceMotion?.matches ? 0.6
+        : BLINK_MIN + (BLINK_MAX - BLINK_MIN) * (0.5 - 0.5 * Math.cos(2 * Math.PI * performance.now() / BLINK_MS));
+      for (const m of masks) ctx.drawImage(m, 0, 0);
+      ctx.globalAlpha = 1;
+    }
     ctx.strokeStyle = 'rgba(200,150,46,.8)'; ctx.lineWidth = 2 / state.s;
     ctx.strokeRect(0, 0, img.naturalWidth, img.naturalHeight);
+  }
+
+  // ---------- 病害標註 ----------
+  function setupMasks(a) {
+    const group = $('mask-group');
+    const classes = Object.entries(a.masks || {});
+    state.maskToken++; state.maskImgs = {};
+    if (state.maskShow !== 'all' && !a.masks?.[state.maskShow]) state.maskShow = 'off';
+    group.hidden = !classes.length;
+    group.innerHTML = '';
+    if (!classes.length) { state.maskShow = 'off'; return; }
+    const options = [['off', '標註關'], ['all', '全部'], ...classes.map(([cls, m]) => [cls, m.label, m.color])];
+    for (const [value, label, color] of options) {
+      const el = document.createElement('label');
+      el.innerHTML = `<input type="radio" name="mask-show">${color ? '<i></i>' : ''}<span></span>`;
+      const input = el.querySelector('input');
+      input.value = value;
+      input.checked = value === state.maskShow;
+      if (color) el.querySelector('i').style.setProperty('--c', color);
+      el.querySelector('span').textContent = label;
+      input.addEventListener('change', () => setMaskShow(value));
+      group.appendChild(el);
+    }
+    setMaskShow(state.maskShow);
+  }
+
+  function setMaskShow(value) {
+    state.maskShow = value;
+    state.dirty = true;
+    const a = state.current, token = state.maskToken;
+    const want = value === 'off' ? [] : value === 'all' ? Object.keys(a.masks || {}) : [value];
+    for (const cls of want) {
+      if (state.maskImgs[cls] !== undefined) continue;
+      state.maskImgs[cls] = null; // 載入中
+      const m = new Image();
+      m.src = a.masks[cls].url;
+      m.decode().then(() => { if (token === state.maskToken) { state.maskImgs[cls] = m; state.dirty = true; } })
+        .catch(() => { if (token === state.maskToken) { delete state.maskImgs[cls]; toast('標註載入失敗'); } });
+    }
+  }
+
+  function visibleMasks() {
+    const a = state.current;
+    if (state.maskShow === 'off' || !a?.masks) return [];
+    const list = state.maskShow === 'all' ? Object.keys(a.masks) : [state.maskShow];
+    return list.map(cls => state.maskImgs[cls]).filter(Boolean);
   }
 
   function drawMini() {

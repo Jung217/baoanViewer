@@ -78,6 +78,14 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .seg { display: inline-flex; border: 1px solid rgba(255,255,255,.4); border-radius: 4px; overflow: hidden; }
 .seg button { min-width: 44px; min-height: 36px; border: 0; background: rgba(0,0,0,.25); color: #fff; font-size: 13px; }
 .seg button.on { background: var(--vermilion); }
+.seg.masks { flex: 1 0 100%; max-width: max-content; }
+.seg.masks label { position: relative; display: inline-flex; align-items: center; gap: 5px; min-height: 36px; padding: 0 10px; background: rgba(0,0,0,.25); color: #fff; font-size: 13px; cursor: pointer; }
+.seg.masks label + label { border-left: 1px solid rgba(255,255,255,.2); }
+.seg.masks input { position: absolute; opacity: 0; pointer-events: none; }
+.seg.masks label:has(input:checked) { background: var(--vermilion); }
+.seg.masks label:has(input:focus-visible) { outline: 2px solid var(--gold); outline-offset: -2px; }
+.seg.masks i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 1px rgba(255,255,255,.6); }
+.seg.masks[hidden] { display: none; }
 .hud .btn.sm { background: rgba(0,0,0,.25); border-color: rgba(255,255,255,.4); color: #fff; }
 
 .settings { position: absolute; right: 12px; bottom: calc(96px + env(safe-area-inset-bottom)); z-index: 3; display: flex; flex-direction: column; gap: 12px; width: min(300px, calc(100% - 24px)); padding: 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; font-size: 13px; box-shadow: 0 8px 24px rgba(0,0,0,.3); }
