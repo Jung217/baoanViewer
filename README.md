@@ -24,6 +24,7 @@
 - `artifacts.json`：14 件文物的名稱、殿別、來源影像編號與原圖尺寸。
 - `images/`：每件文物一張封面原圖，維持原始解析度，重新壓成 JPEG。
 - `thumbs/`：選單縮圖。
+- `game/`：大龍峒保安宮導覽遊戲（3D 廟埕探索＋找碴），從文物清單右上角的「導覽遊戲」進入。這是 `baoan-temple-3d` 專案 `game/spot-diff` 分支用 `npm run build:game` 建置出的 `dist-game/`，請勿直接修改；要更新時重新建置，整個資料夾換掉。
 - `masks/`：病害標註疊圖，每件文物每個類別一張透明 PNG，與原圖同解析度。來源是 `baoan-temple-3d` 的人工標註（ground truth），14 件中有 9 件的封面照片有標註：A-02、A-04 至 A-07、A-09 至 A-11、A-14。
 
 影像為 2026-10-21 現地拍攝，文物資料來自 `baoan-temple-3d` 專案，由該專案的 `tools/build_window.py` 產生。

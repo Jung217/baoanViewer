@@ -25,6 +25,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .bar h1 { margin: 0; font-size: 18px; font-weight: 900; letter-spacing: .04em; }
 .bar small { display: block; margin-top: 2px; font-size: 12px; color: #e9d6b8; }
 .mark { display: grid; place-items: center; width: 36px; height: 36px; flex: none; border: 2px solid var(--gold); color: var(--gold); font-size: 20px; font-weight: 900; }
+.to-game { margin-left: auto; flex: none; display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid var(--gold); border-radius: 4px; color: var(--gold); font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.to-game:active, .to-game:focus-visible { background: rgba(200,150,46,.15); outline: none; }
 .back { width: 36px; height: 36px; flex: none; border: 1px solid rgba(255,255,255,.35); background: transparent; color: #fff; font-size: 24px; line-height: 1; border-radius: 4px; }
 
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; padding: 16px; padding-bottom: calc(16px + env(safe-area-inset-bottom)); }
